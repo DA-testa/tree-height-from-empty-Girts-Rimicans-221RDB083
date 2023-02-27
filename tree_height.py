@@ -13,8 +13,8 @@ class Tree:
         self.height = 1
 
     def parse_input_user(self):
-        self.n = int(sys.stdin.readline())
-        self.parent = list(map(int, sys.stdin.readline().split(' ')))
+        self.n = int(input())
+        self.parent = list(map(int, input().split(' ')))
 
     def parse_input_file(self, file_name):
         file = open(file_name, "r", -1, "utf-8")
@@ -44,7 +44,7 @@ class Tree:
 
 def main():
     tree_instance = Tree()
-    key = sys.stdin.readline()
+    key = sys.stdin.readline(1)
     if (key.upper() == "I"):
         tree_instance.parse_input_user()
         mex_height = tree_instance.compute_height()
