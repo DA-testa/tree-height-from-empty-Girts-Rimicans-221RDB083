@@ -13,13 +13,13 @@ class Tree:
         self.height = 1
 
     def parse_input_user(self):
-        self.n = int(input())
-        self.parent = list(map(int, input().split(' ')))
+        self.n = int(input().strip())
+        self.parent = list(map(int, input().split(' ').strip()))
 
     def parse_input_file(self, file_name):
         file = open(file_name, "r", -1, "utf-8")
-        self.n = int(file.readline())
-        self.parent = list(map(int, file.readline().split(' ')))
+        self.n = int(file.readline().strip())
+        self.parent = list(map(int, file.readline().split(' ').strip()))
 
     def create_tree_nodes(self):
         self.tree_nodes = [ [] for i in range(self.n) ]
@@ -44,7 +44,7 @@ class Tree:
 
 def main():
     tree_instance = Tree()
-    key = sys.stdin.readline(1)
+    key = input().strip()
     if (key.upper() == "I"):
         tree_instance.parse_input_user()
         mex_height = tree_instance.compute_height()
