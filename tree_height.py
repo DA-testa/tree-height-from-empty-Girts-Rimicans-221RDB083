@@ -12,13 +12,17 @@ class Tree:
         self.height = 1
 
     def parse_input_user(self):
-        self.n = int(input().strip())
+        self.n = int(input())
+        print(self.n)
         self.parent = list(map(int, input().strip().split(' ')))
+        print(self.parent)
 
     def parse_input_file(self, file_name):
         file = open(file_name, "r", -1, "utf-8")
         self.n = int(file.readline().strip())
+        print(self.n)
         self.parent = list(map(int, file.readline().strip().split(' ')))
+        print(self.parent)
 
     def create_tree_nodes(self):
         self.tree_nodes = [ [] for i in range(self.n) ]
