@@ -13,16 +13,16 @@ class Tree:
 
     def parse_input_user(self):
         self.n = int(input())
-        print(self.n)
+        # print(self.n)
         self.parent = list(map(int, input().strip().split(' ')))
-        print(self.parent)
+        # print(self.parent)
 
     def parse_input_file(self, file_name):
         file = open(file_name, "r", -1, "utf-8")
         self.n = int(file.readline().strip())
-        print(self.n)
+        # print(self.n)
         self.parent = list(map(int, file.readline().strip().split(' ')))
-        print(self.parent)
+        # print(self.parent)
 
     def create_tree_nodes(self):
         self.tree_nodes = [ [] for i in range(self.n) ]
@@ -49,7 +49,7 @@ def main():
     tree_instance = Tree()
     try:
         key = input().strip()
-        print(key)
+        # print(key)
         if (key.upper() == "I"):
             tree_instance.parse_input_user()
             mex_height = tree_instance.compute_height()
@@ -63,7 +63,7 @@ def main():
             mex_height = tree_instance.compute_height()
             print(mex_height)
     except:
-        print("No input")
+        pass
 
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
