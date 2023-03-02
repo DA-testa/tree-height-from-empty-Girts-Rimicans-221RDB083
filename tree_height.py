@@ -44,7 +44,7 @@ class Tree:
 
 def main():
     tree_instance = Tree()
-    key = input().strip()
+    key = input()
     if (key.upper() == "I"):
         tree_instance.parse_input_user()
         mex_height = tree_instance.compute_height()
@@ -54,7 +54,7 @@ def main():
         if (file_name.lower() == "a"):
             pass
 
-        tree_instance.parse_input_file("../../test/" + file_name)
+        tree_instance.parse_input_file("test/" + file_name)
         mex_height = tree_instance.compute_height()
         print(mex_height)
 
