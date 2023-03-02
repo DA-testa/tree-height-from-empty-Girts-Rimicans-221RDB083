@@ -47,20 +47,23 @@ class Tree:
 
 def main():
     tree_instance = Tree()
-    key = input().strip()
-    print(key)
-    if (key.upper() == "I"):
-        tree_instance.parse_input_user()
-        mex_height = tree_instance.compute_height()
-        print(mex_height)
-    elif (key.upper() == "F"):
-        file_name = input().strip()
-        if (file_name.lower() == "a"):
-            pass
+    try:
+        key = input().strip()
+        print(key)
+        if (key.upper() == "I"):
+            tree_instance.parse_input_user()
+            mex_height = tree_instance.compute_height()
+            print(mex_height)
+        elif (key.upper() == "F"):
+            file_name = input().strip()
+            if (file_name.lower() == "a"):
+                pass
 
-        tree_instance.parse_input_file("test/" + file_name)
-        mex_height = tree_instance.compute_height()
-        print(mex_height)
+            tree_instance.parse_input_file("test/" + file_name)
+            mex_height = tree_instance.compute_height()
+            print(mex_height)
+    except:
+        print("No input")
 
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
