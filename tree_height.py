@@ -14,12 +14,12 @@ class Tree:
 
     def parse_input_user(self):
         self.n = int(input().strip())
-        self.parent = list(map(int, input().split(' ').strip()))
+        self.parent = list(map(int, input().strip().split(' ')))
 
     def parse_input_file(self, file_name):
         file = open(file_name, "r", -1, "utf-8")
         self.n = int(file.readline().strip())
-        self.parent = list(map(int, file.readline().split(' ').strip()))
+        self.parent = list(map(int, file.readline().strip().split(' ')))
 
     def create_tree_nodes(self):
         self.tree_nodes = [ [] for i in range(self.n) ]
@@ -50,12 +50,11 @@ def main():
         mex_height = tree_instance.compute_height()
         print(mex_height)
     elif (key.upper() == "F"):
-        file_name = input("Enter filepath:")
+        file_name = input().strip()
         if (file_name.lower() == "a"):
-            print("Bad file name!")
-            return
+            pass
 
-        tree_instance.parse_input_file(file_name)
+        tree_instance.parse_input_file("../../test/" + file_name)
         mex_height = tree_instance.compute_height()
         print(mex_height)
 
