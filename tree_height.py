@@ -2,7 +2,6 @@
 
 import sys
 import threading
-import numpy
 
 class Tree:
     def __init__(self) -> None:
@@ -23,11 +22,11 @@ class Tree:
 
     def create_tree_nodes(self):
         self.tree_nodes = [ [] for i in range(self.n) ]
-        for inner_index in range(self.n):              
+        for inner_index in range(self.n):
             index_parent = self.parent[inner_index]
             if index_parent == -1:
                 self.tree_root = inner_index
-            else: 
+            else:
                 self.tree_nodes[index_parent].append(inner_index)
 
     def get_tree_depth(self, index, height):
@@ -44,7 +43,8 @@ class Tree:
 
 def main():
     tree_instance = Tree()
-    key = input()
+    key = input().strip()
+    print(key)
     if (key.upper() == "I"):
         tree_instance.parse_input_user()
         mex_height = tree_instance.compute_height()
@@ -58,21 +58,7 @@ def main():
         mex_height = tree_instance.compute_height()
         print(mex_height)
 
-    # implement input form keyboard and from files
-    
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
-    
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-    pass
-
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
 main()
-# print(numpy.array([1,2,3]))
